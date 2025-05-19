@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arr Prima Glass Installations - Book Your Appointment</title>
+<link rel="icon" type="image/jpeg" href="favicon.ico">
+<link rel="stylesheet" href="ArrTest.css">
+</head>
+<body>
+<header>
+  <h1 tabindex="0" id="logo">Arr Prima Glass</h1>
+  <nav aria-label="Primary navigation">
+    <button data-target="home">Home</button>
+    <button data-target="services">Services</button>
+    <button data-target="booking">Book Now</button>
+    <button data-target="gallery">Gallery</button>
+    <button data-target="about">About Us</button>
+    <button data-target="reviews">Reviews</button>
+    <button data-target="contact">Contact</button>
+    <button data-target="policies">Policies</button>
+
+  </nav>
+</header>
+
+<main>
+
+  <section id="home" class="active" tabindex="0" aria-label="Homepage">
+    <div class="hero" style="position:relative; min-height:340px; display:flex; align-items:center; justify-content:center; flex-direction:column; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&fit=crop&w=1200&q=80') center/cover no-repeat; color:#fff; border-radius:10px; margin-bottom:2rem; box-shadow:0 2px 16px rgba(0,0,0,0.13);">
+      <div style="background:rgba(0,0,0,0.45); padding:2rem 2.5rem; border-radius:10px; max-width:90vw;">
+        <h2 style="font-size:2.7rem; margin-bottom:0.7rem; font-weight:800; letter-spacing:0.5px;">Beautiful Glass Solutions,<br>Easy Online Booking</h2>
+        <p style="font-size:1.25rem; margin-bottom:1.7rem;">Arr Prima offers high-quality glass installation services tailored for your home or business.<br>Trusted since 2025.</p>
+        <button class="btn-primary" data-target="booking" style="font-size:1.2rem; padding:1rem 2.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.10);">Book an Appointment</button>
+      </div>
+    </div>
+    <h3>Our Key Services</h3>
+    <ul class="service-list" aria-label="Key Services">
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="windows">Sliding Window</a></h3>
+        <p>Let the light in and the breeze flow with our smooth-gliding sliding windows.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="sliding-doors">Glass Door</a></h3>
+        <p>Elevate your entryways with elegant glass doors that brighten any space.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="shower-enclosures">Screen Door</a></h3>
+        <p>Enjoy fresh air without the bugs with our durable and effective screen doors.</p>
+      </li>
+    </ul>
+    <h3>Gallery Preview</h3>
+    <ul class="gallery-list" aria-label="Gallery preview">
+      <li class="gallery-item">
+        <img src="a.jpg" alt="Gallery image preview 1" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Image+1'; this.alt='Placeholder Image 1';"/>
+      </li>
+      <li class="gallery-item">
+        <img src="d.jpg" alt="Gallery image preview 2" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Image+2'; this.alt='Placeholder Image 2';"/>
+      </li>
+      <li class="gallery-item">
+        <img src="g.jpg" alt="Gallery image preview 3" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Image+3'; this.alt='Placeholder Image 3';"/>
+      </li>
+    </ul>
+    <h3>What Our Clients Say</h3>
+    <p><em>"Arr Prima transformed our home with beautiful windows installed on time and on budget!"</em> - Sarah M.</p>
+    <p><a href="#" data-target="reviews">Read More Reviews</a></p>
+  </section>
+
+  <section id="service-details" tabindex="0" aria-label="Service Details">
+    <button class="btn-secondary" id="service-back">← Back to Services</button>
+    <div id="service-content"></div>
+  </section>
+
+  <section id="services" class="hidden-section" tabindex="0" aria-label="Services Overview">
+    <h2>Our Glass Installation Services</h2>
+    <p>We offer a variety of glass installation services to meet your needs, all backed by our quality guarantee.</p>
+    <ul class="service-list" id="dynamic-service-list" aria-label="List of Services">
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="windows">Aluminum Windows</a></h3>
+        <p>Durable aluminum-framed windows with various styles and finishes to suit modern homes.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="sliding-doors">Sliding Glass Doors</a></h3>
+        <p>Elegant sliding glass doors that enhance your entryways and provide a seamless transition between indoor and outdoor spaces.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="shower-enclosures">Shower Enclosures</a></h3>
+        <p>Custom glass shower enclosures that add elegance and functionality to your bathroom.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="glass-cabinets">Glass Cabinets</a></h3>
+        <p>Stylish glass cabinets that beautifully showcase your collectibles and enhance your interior decor.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="glass-tables">Glass Tables</a></h3>
+        <p>Contemporary glass tables that add a touch of elegance and modernity to your living space.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="aluminum-cabinets">Aluminum Cabinets</a></h3>
+        <p>Robust aluminum cabinets designed for durability and functionality, perfect for storage in any space.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="mirrors">Mirrors</a></h3>
+        <p>High-quality mirrors that enhance your space and reflect your style, available in various shapes and sizes.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="custom-projects">Custom Projects</a></h3>
+        <p>Tailored glass solutions for unique architectural and design challenges, crafted to your specifications.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="booking" class="hidden-section" tabindex="0" aria-label="Book an Appointment">
+    <h2>Book Your Glass Installation Appointment</h2>
+    <form id="booking-form" action="submit_booking.php" method="POST" enctype="multipart/form-data" novalidate>
+      <div class="booking-step" id="booking-step-1">
+        <h3>Step 1: Select Service</h3>
+        <label for="service-select">Service</label>
+        <select id="service-select" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option value="windows">Aluminum Windows</option>
+          <option value="sliding-doors">Sliding Glass Doors</option>
+          <option value="shower-enclosures">Shower Enclosures</option>
+          <option value="glass-cabinets">Glass Cabinets</option>
+          <option value="glass-tables">Glass Tables</option>
+          <option value="aluminum-cabinets">Aluminum Cabinets</option>
+          <option value="mirrors">Mirrors</option>
+          <option value="custom-projects">Custom Projects</option>
+        </select>
+      </div>
+      <div class="booking-step" id="booking-step-2" style="display:none;">
+        <h3>Step 2: Choose Preferred Dates & Times</h3>
+        <label for="date1">1st Choice Date</label>
+        <input type="date" id="date1" name="date1" required />
+        <label for="time1">1st Choice Time</label>
+        <input type="time" id="time1" name="time1" required />
+        <label for="date2">2nd Choice Date (optional)</label>
+        <input type="date" id="date2" name="date2" />
+        <label for="time2">2nd Choice Time (optional)</label>
+        <input type="time" id="time2" name="time2" />
+      </div>
+      <div class="booking-step" id="booking-step-3" style="display:none;">
+        <h3>Step 3: Your Details</h3>
+        <label for="clientName">Full Name</label>
+        <input type="text" id="clientName" name="clientName" required />
+        <label for="clientEmail">Email Address</label>
+        <input type="email" id="clientEmail" name="clientEmail" required />
+        <label for="clientPhone">Phone Number</label>
+        <input type="tel" id="clientPhone" name="clientPhone" required />
+        <label for="installAddress">Installation Address</label>
+        <textarea id="installAddress" name="installAddress" rows="3" required></textarea>
+        <label for="projectDetails">Project Details (optional)</label>
+        <textarea id="projectDetails" name="projectDetails" rows="3"></textarea>
+        <label for="projectPhotos">Attach Photos (optional)</label>
+        <input type="file" id="projectPhotos" name="projectPhotos[]" accept="image/*" multiple />
+      </div>
+      <div class="booking-step" id="booking-step-4" style="display:none;">
+        <h3>Step 4: Review Your Request</h3>
+        <div id="booking-summary" style="background:#fff;padding:1rem;border:1px solid #ccc;border-radius:4px;"></div>
+        <p>Payment will be arranged offline after we review your request.</p>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn-secondary" id="prev-step" style="display:none;">Back</button>
+        <button type="button" class="btn-primary" id="next-step">Next</button>
+        <button type="submit" class="btn-primary" id="submit-btn" style="display:none;">Submit Request</button>
+      </div>
+    </form>
+    <div id="booking-confirmation" style="display:none; margin-top: 2rem;">
+      <h3>Thank you!</h3>
+      <p>Your appointment request has been submitted. We will contact you shortly to confirm availability and details.</p>
+      <button class="btn-primary" data-target="home">Return to Home</button>
+    </div>
+  </section>
+
+  <section id="gallery" class="hidden-section" tabindex="0" aria-label="Gallery Portfolio">
+    <h2>Gallery of Completed Projects</h2>
+    <div class="gallery-filters" aria-label="Filter Gallery">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="sliding-window">Sliding Window</button>
+      <button data-filter="screen-door">Screen Door</button>
+      <button data-filter="glass-railings">Glass Railings</button>
+      <button data-filter="glass-cabinets">Glass Cabinets</button>
+      <button data-filter="glass-tables">Glass Tables</button>
+      <button data-filter="aluminum-cabinets">Aluminum Cabinets</button>
+      <button data-filter="mirrors">Mirrors</button>
+      <button data-filter="custom-projects">Custom Projects</button>
+    </div>
+    <ul class="gallery-list" aria-live="polite" aria-label="Gallery images" id="gallery-items">
+      <li class="gallery-item" data-category="sliding-window">
+        <img src="i.jpg" alt="Sliding window project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Sliding+Window'; this.alt='Placeholder Sliding Window';"/>
+      </li>
+      <li class="gallery-item" data-category="screen-door">
+        <img src="j.jpg" alt="Screen door project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Screen+Door'; this.alt='Placeholder Screen Door';"/>
+      </li>
+      <li class="gallery-item" data-category="glass-railings">
+        <img src="c.jpg" alt="Glass railings project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Glass+Railings'; this.alt='Placeholder Glass Railings';"/>
+      </li>
+      <li class="gallery-item" data-category="glass-cabinets">
+        <img src="k.jpg" alt="Glass cabinets project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Glass+Cabinets'; this.alt='Placeholder Glass Cabinets';"/>
+      </li>
+      <li class="gallery-item" data-category="glass-tables">
+        <img src="l.jpg" alt="Glass tables project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Glass+Tables'; this.alt='Placeholder Glass Tables';"/>
+      </li>
+      <li class="gallery-item" data-category="aluminum-cabinets">
+        <img src="m.jpg" alt="Aluminum cabinets project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Aluminum+Cabinets'; this.alt='Placeholder Aluminum Cabinets';"/>
+      </li>
+      <li class="gallery-item" data-category="mirrors">
+        <img src="n.jpg" alt="Mirror project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Mirror'; this.alt='Placeholder Mirror';"/>
+      </li>
+      <li class="gallery-item" data-category="custom-projects">
+        <img src="e.jpg" alt="Custom project" onerror="this.src='https://placehold.co/300x180/eee/ccc?text=Custom+Project'; this.alt='Placeholder Custom Project';"/>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about" class="hidden-section" tabindex="0" aria-label="About Us">
+    <h2>About Arr Prima</h2>
+    <p>Founded in 2025, Arr Prima is dedicated to providing modern, reliable, and aesthetic glass installation solutions. Our mission is to make quality glass installations accessible and efficient for every client. We pride ourselves on professionalism, attention to detail, and customer satisfaction.</p>
+    <p>Our values include reliability, modern design, customer focus, and environmental responsibility.</p>
+    <p>Meet the team:</p>
+    <ul>
+      <li>Jane Doe - Founder & CEO</li>
+      <li>John Smith - Lead Installer</li>
+      <li>Emily Lane - Customer Support Manager</li>
+    </ul>
+  </section>
+
+  <section id="reviews" class="hidden-section" tabindex="0" aria-label="Client Reviews">
+    <h2>What Our Clients Say</h2>
+    <ul class="review-list" aria-label="Client reviews">
+      <li class="review-item">
+        <h3>Sarah M.</h3>
+        <p><em>"Arr Prima transformed our home with beautiful windows installed on time and on budget!"</em></p>
+      </li>
+      <li class="review-item">
+        <h3>John D.</h3>
+        <p><em>"The sliding doors are stunning! The team was professional and efficient."</em></p>
+      </li>
+      <li class="review-item">
+        <h3>Emily R.</h3>
+        <p><em>"Highly recommend Arr Prima for their quality and service. Our shower enclosure looks amazing!"</em></p>
+      </li>
+    </ul>
+    <button class="btn-secondary" id="leave-review-btn">Leave a Review</button>
+    <form id="review-form" style="display:none; margin-top:1rem;">
+      <label for="reviewer-name">Name:</label>
+      <input type="text" id="reviewer-name" name="reviewer-name" required style="margin-bottom:0.5rem; display:block; width:100%; max-width:300px;">
+      <label for="review-text">Review:</label>
+      <textarea id="review-text" name="review-text" required rows="3" style="margin-bottom:0.5rem; display:block; width:100%; max-width:400px;"></textarea>
+      <button type="submit" class="btn-primary">Submit Review</button>
+    </form>
+  </section>
+
+  <section id="contact" class="hidden-section" tabindex="0" aria-label="Contact Us">
+    <h2>Contact Us</h2>
+    <form id="contact-form" novalidate>
+      <label for="contactName">Full Name</label>
+      <input type="text" id="contactName" name="contactName" required />
+      <label for="contactEmail">Email Address</label>
+      <input type="email" id="contactEmail" name="contactEmail" required />
+      <label for="contactMessage">Message</label>
+      <textarea id="contactMessage" name="contactMessage" rows="4" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <section id="policies" class="hidden-section" tabindex="0" aria-label="Policies">
+    <h2>Our Policies</h2>
+    <h3>Privacy Policy</h3>
+    <p>Your privacy is important to us. We do not share your personal information with third parties without your consent.</p>
+    <h3>Cancellation Policy</h3>
+    <p>Appointments can be canceled or rescheduled up to 24 hours in advance without penalty.</p>
+    <h3>Warranty</h3>
+    <p>We offer a warranty on all installations for a period of one year from the date of service.</p>
+  </section>
+        <h3>Service / Event Details</h3>
+        <div style="background:#fafbfc; border-radius:8px; padding:1rem;">
+          <p><strong>Service:</strong> Example Glass Installation</p>
+          <p><strong>Price:</strong> $199 - $999</p>
+          <ul>
+            <li>Custom glass solutions</li>
+            <li>Professional installation</li>
+            <li>1-year warranty</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Cancellation & Refund Policy</h3>
+        <div style="background:#fafbfc; border-radius:8px; padding:1rem; margin-bottom:1rem;">
+          <p>You may cancel or reschedule your appointment up to 24 hours in advance for a full refund. For late cancellations, please contact our support team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer style="text-align:center; padding:1.2rem 0; background:#f5f7fa; color:#333; font-size:1rem; width:100%; border-radius:0 0 10px 10px; box-shadow:0 -1px 8px rgba(0,0,0,0.03); z-index:100;">
+  © <span id="copyright-year">2025</span> Arr Prima Glass. All rights reserved.
+</footer>
+
+<script src="ArrTest.js"></script>
+</body>
+</html>

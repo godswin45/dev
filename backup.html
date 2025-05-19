@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arr Prima Glass Installations - Book Your Appointment</title>
+<style>
+  /* Reset and basic styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #fefefefe;
+    color: #333;
+  }
+  a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  header {
+    background: #0077cc;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+  }
+  nav button:hover,
+  nav button:focus {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    outline: none;
+  }
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #0077cc;
+    margin-top: 0;
+  }
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+  }
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .btn-primary {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #005fa3;
+    outline: none;
+  }
+  .service-list,
+  .gallery-list,
+  .review-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1rem;
+  }
+  .service-item,
+  .gallery-item,
+  .review-item {
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    padding: 1rem;
+  }
+  .service-item h3,
+  .review-item h3 {
+    margin-top: 0;
+    color: #004d80;
+  }
+  .service-item p {
+    font-size: 0.95rem;
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  /* Booking form styles */
+  .booking-step {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #eef6fc;
+    border-radius: 6px;
+  }
+  label {
+    display: block;
+    margin: 0.75rem 0 0.3rem;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border:     1px solid #ccc;
+    font-family: inherit;
+  }
+  textarea {
+    resize: vertical;
+  }
+  .btn-secondary {
+    background-color: #e1ecf9;
+    color: #0077cc;
+    border: 1px solid #0077cc;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 0.5rem 0.25rem 0 0;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background-color: #c7dbf8;
+    outline: none;
+  }
+  .form-buttons {
+    margin-top: 1rem;
+  }
+
+  /* Contact & Reviews form styling */
+  form {
+    max-width: 600px;
+  }
+
+  /* Gallery filters */
+  .gallery-filters {
+    margin-bottom: 1rem;
+  }
+  .gallery-filters button {
+    margin-right: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: 1px solid #0077cc;
+    background: white;
+    color: #0077cc;
+    cursor: pointer;
+  }
+  .gallery-filters button.active {
+    background: #0077cc;
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    nav {
+      justify-content: center;
+    }
+    .service-list,
+    .gallery-list,
+    .review-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 tabindex="0" id="logo">Arr Prima Glass</h1>
+  <nav aria-label="Primary navigation">
+    <button data-target="home">Home</button>
+    <button data-target="services">Services</button>
+    <button data-target="booking">Book Now</button>
+    <button data-target="gallery">Gallery</button>
+    <button data-target="about">About Us</button>
+    <button data-target="reviews">Reviews</button>
+    <button data-target="contact">Contact</button>
+    <button data-target="policies">Policies</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="home" class="active" tabindex="0" aria-label="Homepage">
+    <div class="hero">
+      <h2>Beautiful Glass Solutions, Easy Online Booking</h2>
+      <p>Arr Prima offers high-quality glass installation services tailored for your home or business. Trusted since 2025.</p>
+      <button class="btn-primary" data-target="booking">Book an Appointment</button>
+    </div>
+
+    <h3>Our Key Services</h3>
+    <ul class="service-list" aria-label="Key Services">
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="windows">Sliding Window</a></h3>
+        <p>Let the light in and the breeze flow with our smooth-gliding sliding windows.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="sliding-doors">Glass Door</a></h3>
+        <p>Elevate your entryways with elegant glass doors that brighten any space.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="shower-enclosures">Screen Door</a></h3>
+        <p>Enjoy fresh air without the bugs with our durable and effective screen doors.</p>
+      </li>
+    </ul>
+
+    <h3>Gallery Preview</h3>
+    <ul class="gallery-list" aria-label="Gallery preview">
+      <li class="gallery-item">
+        <img src="a.jpg"/>
+      </li>
+      <li class="gallery-item">
+        <img src="d.jpg"/>
+      </li>
+      <li class="gallery-item">
+        <img src="g.jpg"/>
+      </li>
+    </ul>
+
+    <h3>What Our Clients Say</h3>
+    <p><em>"Arr Prima transformed our home with beautiful windows installed on time and on budget!"</em> - Sarah M.</p>
+    <p><a href="#" data-target="reviews">Read More Reviews</a></p>
+  </section>
+
+  <section id="services" tabindex="0" aria-label="Services Overview">
+    <h2>Our Glass Installation Services</h2>
+    <p>We offer a variety of glass installation services to meet your needs, all backed by our quality guarantee.</p>
+    <ul class="service-list" aria-label="List of Services">
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="windows">Sliding Window</a></h3>
+        <p>Let the light in and the breeze flow with our smooth-gliding sliding windows.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="sliding-doors">Screen Door</a></h3>
+        <p>Enjoy fresh air without the bugs with our durable and effective screen doors.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="shower-enclosures">Glass Railings</a></h3>
+        <p>Modernize your views with sleek and secure glass railings.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="glass-cabinets">Glass Cabinets</a></h3>
+        <p>Showcase your treasures beautifully with clear and stylish glass cabinets.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="glass-tables">Glass Tables</a></h3>
+        <p>Add a touch of modern sophistication with a stunning glass table.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="aluminum-cabinets">Aluminum Cabinets</a></h3>
+        <p>Get organized with strong and versatile aluminum cabinets built to last.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="mirrors">Mirrors</a></h3>
+        <p>Reflect your style and expand your space with our high-quality mirrors.</p>
+      </li>
+      <li class="service-item">
+        <h3><a href="#" data-target="service-details" data-service="custom-projects">Custom Projects</a></h3>
+        <p>Tailored glass solutions for unique architectural and design challenges.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="service-details" tabindex="0" aria-label="Service Details">
+    <button class="btn-secondary" id="service-back">← Back to Services</button>
+    <div id="service-content"></div>
+  </section>
+
+  <section id="booking" tabindex="0" aria-label="Book an Appointment">
+    <h2>Book Your Glass Installation Appointment</h2>
+    <form id="booking-form" novalidate>
+      <div class="booking-step" id="booking-step-1">
+        <h3>Step 1: Select Service</h3>
+        <label for="service-select">Service</label>
+        <select id="service-select" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option value="windows">Aluminum Windows</option>
+          <option value="sliding-doors">Sliding Glass Doors</option>
+          <option value="shower-enclosures">Shower Enclosures</option>
+          <option value="custom-projects">Custom Projects</option>
+        </select>
+      </div>
+      <div class="booking-step" id="booking-step-2" style="display:none;">
+        <h3>Step 2: Choose Preferred Dates & Times</h3>
+        <label for="date1">1st Choice Date</label>
+        <input type="date" id="date1" name="date1" required />
+        <label for="time1">1st Choice Time</label>
+        <input type="time" id="time1" name="time1" required />
+
+        <label for="date2">2nd Choice Date (optional)</label>
+        <input type="date" id="date2" name="date2" />
+        <label for="time2">2nd Choice Time (optional)</label>
+        <input type="time" id="time2" name="time2" />
+      </div>
+      <div class="booking-step" id="booking-step-3" style="display:none;">
+        <h3>Step 3: Your Details</h3>
+        <label for="clientName">Full Name</label>
+        <input type="text" id="clientName" name="clientName" required />
+        <label for="clientEmail">Email Address</label>
+        <input type="email" id="clientEmail" name="clientEmail" required />
+        <label for="clientPhone">Phone Number</label>
+        <input type="tel" id="clientPhone" name="clientPhone" required />
+        <label for="installAddress">Installation Address</label>
+        <textarea id="installAddress" name="installAddress" rows="3" required></textarea>
+        <label for="projectDetails">Project Details (optional)</label>
+        <textarea id="projectDetails" name="projectDetails" rows="3"></textarea>
+        <label for="projectPhotos">Attach Photos (optional)</label>
+        <input type="file" id="projectPhotos" name="projectPhotos" accept="image/*" multiple />
+      </div>
+      <div class="booking-step" id="booking-step-4" style="display:none;">
+        <h3>Step 4: Review Your Request</h3>
+        <div id="booking-summary" style="background:#fff;padding:1rem;border:1px solid #ccc;border-radius:4px;"></div>
+        <p>Payment will be arranged offline after we review your request.</p>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn-secondary" id="prev-step" style="display:none;">Back</button>
+        <button type="button" class="btn-primary" id="next-step">Next</button>
+        <button type="submit" class="btn-primary" id="submit-btn" style="display:none;">Submit Request</button>
+      </div>
+    </form>
+
+    <div id="booking-confirmation" style="display:none; margin-top: 2rem;">
+      <h3>Thank you!</h3>
+      <p>Your appointment request has been submitted. We will contact you shortly to confirm availability and details.</p>
+      <button class="btn-primary" data-target="home">Return to Home</button>
+    </div>
+  </section>
+
+  <section id="gallery" tabindex="0" aria-label="Gallery Portfolio">
+    <h2>Gallery of Completed Projects</h2>
+    <div class="gallery-filters" aria-label="Filter Gallery">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="sliding-window">Sliding Window</button>
+      <button data-filter="screen-door">Screen Door</button>
+      <button data-filter="glass-railings">Glass Railings</button>
+      <button data-filter="glass-cabinets">Glass Cabinets</button>
+      <button data-filter="glass-tables">Glass Tables</button>
+      <button data-filter="aluminum-cabinets">Aluminum Cabinets</button>
+      <button data-filter="mirrors">Mirrors</button>
+      <button data-filter="custom-projects">Custom Projects</button>
+    </div>
+    <ul class="gallery-list" aria-live="polite" aria-label="Gallery images" id="gallery-items">
+      <li class="gallery-item" data-category="sliding-window">
+        <img src="i.jpg"/>
+      </li>
+      <li class="gallery-item" data-category="screen-door">
+        <img src="j.jpg"/>
+      </li>
+      <li class="gallery-item" data-category="glass-railings">
+        <img src="c.jpg" />
+      </li>
+      <li class="gallery-item" data-category="glass-cabinets">
+        <img src="k.jpg" />
+      </li>
+      <li class="gallery-item" data-category="glass-tables">
+        <img src="l.jpg" />
+      </li>
+      <li class="gallery-item" data-category="aluminum-cabinets">
+        <img src="m.jpg"/>
+      </li>
+      <li class="gallery-item" data-category="mirrors">
+        <img src="n.jpg"/>
+      </li>
+      <li class="gallery-item" data-category="custom-projects">
+        <img src="e.jpg"/>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about" tabindex="0" aria-label="About Us">
+    <h2>About Arr Prima</h2>
+    <p>Founded in 2025, Arr Prima is dedicated to providing modern, reliable, and aesthetic glass installation solutions. Our mission is to make quality glass installations accessible and efficient for every client. We pride ourselves on professionalism, attention to detail, and customer satisfaction.</p>
+    <p>Our values include reliability, modern design, customer focus, and environmental responsibility.</p>
+    <p>Meet the team:</p>
+    <ul>
+      <li>Jane Doe - Founder & CEO</li>
+      <li>John Smith - Lead Installer</li>
+      <li>Emily Lane - Customer Support Manager</li>
+    </ul>
+  </section>
+
+  <section id="reviews" tabindex="0" aria-label="Client Reviews">
+    <h2>What Our Clients Say</h2>
+    <ul class="review-list" aria-label="Client reviews">
+      <li class="review-item">
+        <h3>Sarah M.</h3>
+        <p><em>"Arr Prima transformed our home with beautiful windows installed on time and on budget!"</em></p>
+      </li>
+      <li class="review-item">
+        <h3>John D.</h3>
+        <p><em>"The sliding doors are stunning! The team was professional and efficient."</em></p>
+      </li>
+      <li class="review-item">
+        <h3>Emily R.</h3>
+        <p><em>"Highly recommend Arr Prima for their quality and service. Our shower enclosure looks amazing!"</em></p>
+      </li>
+    </ul>
+    <button data-target="contact" class="btn-secondary">Leave a Review</button>
+  </section>
+
+  <section id="contact" tabindex="0" aria-label="Contact Us">
+    <h2>Contact Us</h2>
+    <form id="contact-form" novalidate>
+      <label for="contactName">Full Name</label>
+      <input type="text" id="contactName" name="contactName" required />
+      <label for="contactEmail">Email Address</label>
+      <input type="email" id="contactEmail" name="contactEmail" required />
+      <label for="contactMessage">Message</label>
+      <textarea id="contactMessage" name="contactMessage" rows="4" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <section id="policies" tabindex="0" aria-label="Policies">
+    <h2>Our Policies</h2>
+    <h3>Privacy Policy</h3>
+    <p>Your privacy is important to us. We do not share your personal information with third parties without your consent.</p>
+    <h3>Cancellation Policy</h3>
+    <p>Appointments can be canceled or rescheduled up to 24 hours in advance without penalty.</p>
+    <h3>Warranty</h3>
+    <p>We offer a warranty on all installations for a period of one year from the date of service.</p>
+  </section>
+
+</main>
+
+<script>
+  const serviceData = {
+    'windows': {
+      title: 'Aluminum Windows',
+      description: 'Durable aluminum-framed windows with various styles and finishes to suit modern homes.',
+      features: [
+        'Corrosion-resistant aluminum frames.',
+        'Multiple glass options including double-glazed.',
+        'Enhanced security and noise reduction.',
+      ],
+      process: 'Our process includes free consultation, precise measurement, professional installation by certified technicians.',
+      pricing: 'Pricing varies based on size and glass options. Please request a quote through our booking system.',
+      faqs: [
+        'Q: Are the windows energy efficient? A: Yes, we offer energy-efficient insulated glass options.',
+        'Q: How long does installation take? A: Typically 1-2 days depending on project size.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/3807806/pexels-photo-3807806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'sliding-doors': {
+      title: 'Sliding Glass Doors',
+      description: 'Elegant sliding glass doors that enhance your entryways and provide a seamless transition between indoor and outdoor spaces.',
+      features: [
+        'Smooth, easy-open        ',
+        'Smooth, easy-open operation.',
+        'Customizable sizes and finishes.',
+        'Energy-efficient glass options available.',
+      ],
+      process: 'We provide a comprehensive consultation to help you choose the right door, followed by professional installation.',
+      pricing: 'Contact us for a detailed quote based on your specifications.',
+      faqs: [
+        'Q: Can I customize the size of the doors? A: Yes, we offer various sizes to fit your needs.',
+        'Q: Are the doors secure? A: Yes, our sliding doors come with advanced locking mechanisms for security.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'shower-enclosures': {
+      title: 'Shower Enclosures',
+      description: 'Custom glass shower enclosures that add elegance and functionality to your bathroom.',
+      features: [
+        'Frameless and framed options available.',
+        'Custom sizes to fit any shower space.',
+        'Easy to clean and maintain.',
+      ],
+      process: 'We measure your space, help you choose the design, and install it with precision.',
+      pricing: 'Pricing is based on size and design. Please request a quote for more details.',
+      faqs: [
+        'Q: Can I choose a custom design? A: Yes, we offer a variety of designs to match your style.',
+        'Q: Is the glass safe? A: Yes, we use tempered glass for safety and durability.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/450597/pexels-photo-450597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'glass-cabinets': {
+      title: 'Glass Cabinets',
+      description: 'Stylish glass cabinets that beautifully showcase your collectibles and enhance your interior decor.',
+      features: [
+        'Customizable sizes and designs.',
+        'High-quality tempered glass for safety.',
+        'Elegant finishes to match your decor.',
+      ],
+      process: 'We work with you to design the perfect cabinet, ensuring it fits your space and style.',
+      pricing: 'Get in touch for a custom quote based on your specifications.',
+      faqs: [
+        'Q: Can I choose the size and design? A: Yes, we offer fully customizable options.',
+        'Q: Is the glass safe? A: Yes, we use tempered glass for durability and safety.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/123456/pexels-photo-123456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'glass-tables': {
+      title: 'Glass Tables',
+      description: 'Contemporary glass tables that add a touch of elegance and modernity to your living space.',
+      features: [
+        'Various styles including coffee, dining, and side tables.',
+        'Durable glass with stylish frame options.',
+        'Easy to clean and maintain.',
+      ],
+      process: 'Choose from our range of designs or customize your own table to fit your needs.',
+      pricing: 'Contact us for pricing based on your design choices.',
+      faqs: [
+        'Q: Are the tables sturdy? A: Yes, our tables are designed for durability and stability.',
+        'Q: Can I customize the size? A: Yes, we offer various sizes to fit your space.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/654321/pexels-photo-654321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'aluminum-cabinets': {
+      title: 'Aluminum Cabinets',
+      description: 'Robust aluminum cabinets designed for durability and functionality, perfect for storage in any space.',
+      features: [
+        'Weather-resistant and corrosion-proof.',
+        'Multiple sizes and configurations available.',
+        'Ideal for both indoor and outdoor use.',
+      ],
+      process: 'We help you select the right cabinet for your needs and provide professional installation.',
+      pricing: 'Request a quote for pricing based on your requirements.',
+      faqs: [
+        'Q: Are these cabinets suitable for outdoor use? A: Yes, they are designed to withstand the elements.',
+        'Q: Can I customize the color? A: Yes, we offer various color options.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/789012/pexels-photo-789012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+        ]
+    },
+    'mirrors': {
+      title: 'Mirrors',
+      description: 'High-quality mirrors that enhance your space and reflect your style, available in various shapes and sizes.',
+      features: [
+        'Custom sizes and designs available.',
+        'Frameless and framed options.',
+        'Perfect for bathrooms, living rooms, and more.',
+      ],
+      process: 'We assist you in selecting the right mirror for your space and handle the installation.',
+      pricing: 'Contact us for a quote based on your specifications.',
+      faqs: [
+        'Q: Can I get a custom size mirror? A: Yes, we offer custom sizing to fit your needs.',
+        'Q: How do I clean the mirrors? A: Use a soft cloth and glass cleaner for best results.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/456789/pexels-photo-456789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    },
+    'custom-projects': {
+      title: 'Custom Projects',
+      description: 'Tailored glass solutions for unique architectural and design challenges, crafted to your specifications.',
+      features: [
+        'Fully customizable designs to meet your needs.',
+        'Expert consultation and design services.',
+        'High-quality materials and craftsmanship.',
+      ],
+      process: 'We collaborate with you to understand your vision and provide a detailed plan for execution.',
+      pricing: 'Pricing varies based on project complexity. Please contact us for a detailed quote.',
+      faqs: [
+        'Q: Can you handle large-scale projects? A: Yes, we have experience with both residential and commercial projects.',
+        'Q: How long does a custom project take? A: Timelines vary based on the project scope; we will provide an estimate during consultation.',
+      ],
+      photos: [
+        'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320'
+      ]
+    }
+  };
+
+  // JavaScript to handle navigation and service details display
+  document.querySelectorAll('nav button').forEach(button => {
+    button.addEventListener('click', function() {
+      const target = this.getAttribute('data-target');
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.service-item a').forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const serviceKey = this.getAttribute('data-service');
+      const service = serviceData[serviceKey];
+      const serviceContent = `
+        <h3>${service.title}</h3>
+        <p>${service.description}</p>
+        <h4>Features:</h4>
+        <ul>${service.features.map(feature => `<li>${feature}</li>`).join('')}</ul>
+        <h4>Process:</h4>
+        <p>${service.process}</p>
+        <h4>Pricing:</h4>
+        <p>${service.pricing}</p>
+        <h4>FAQs:</h4>
+        <ul>${service.faqs.map(faq => `<li>${faq}</li>`).join('')}</ul>
+        <h4>Photos:</h4>
+        <div>${service.photos.map(photo => `<img src="${photo}" alt="${service.title}" style="width:100%; max-width:300px; margin:0.5rem;"/>`).join('')}</div>
+      `;
+      document.getElementById('service-content').innerHTML = serviceContent;
+      document.getElementById('service-details').classList.add('active');
+      document.getElementById('services').classList.remove('active');
+    });
+  });
+
+  document.getElementById('service-back').addEventListener('click', function() {
+    document.getElementById('service-details').classList.remove('active');
+    document.getElementById('services').classList.add('active');
+  });
+
+  // Booking form navigation
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  document.getElementById('next-step').addEventListener('click', function() {
+    if (currentStep < totalSteps) {
+      document.getElementById(`booking-step-${currentStep}`).style.display = 'none';
+      currentStep++;
+      document.getElementById(`booking-step-${currentStep}`).style.display = 'block';
+      if (currentStep === totalSteps) {
+        document.getElementById('next-step').style.display = 'none';
+        document.getElementById('submit-btn        ').style.display = 'block';
+      }
+      document.getElementById('prev-step').style.display = currentStep > 1 ? 'block' : 'none';
+    }
+  });
+
+  document.getElementById('prev-step').addEventListener('click', function() {
+    if (currentStep > 1) {
+      document.getElementById(`booking-step-${currentStep}`).style.display = 'none';
+      currentStep--;
+      document.getElementById(`booking-step-${currentStep}`).style.display = 'block';
+      document.getElementById('next-step').style.display = currentStep === totalSteps ? 'none' : 'block';
+      document.getElementById('prev-step').style.display = currentStep > 1 ? 'block' : 'none';
+    }
+  });
+
+  document.getElementById('booking-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const service = document.getElementById('service-select').value;
+    const date1 = document.getElementById('date1').value;
+    const time1 = document.getElementById('time1').value;
+    const clientName = document.getElementById('clientName').value;
+    const clientEmail = document.getElementById('clientEmail').value;
+    const clientPhone = document.getElementById('clientPhone').value;
+    const installAddress = document.getElementById('installAddress').value;
+
+    const summaryContent = `
+      <h4>Appointment Summary</h4>
+      <p><strong>Service:</strong> ${service}</p>
+      <p><strong>Preferred Date:</strong> ${date1}</p>
+      <p><strong>Preferred Time:</strong> ${time1}</p>
+      <p><strong>Name:</strong> ${clientName}</p>
+      <p><strong>Email:</strong> ${clientEmail}</p>
+      <p><strong>Phone:</strong> ${clientPhone}</p>
+      <p><strong>Address:</strong> ${installAddress}</p>
+    `;
+    document.getElementById('booking-summary').innerHTML = summaryContent;
+    document.getElementById('booking-step-4').style.display = 'block';
+    document.getElementById('booking-confirmation').style.display = 'none';
+    document.getElementById('booking-form').style.display = 'none';
+  });
+
+  document.getElementById('submit-btn').addEventListener('click', function() {
+    document.getElementById('booking-confirmation').style.display = 'block';
+    document.getElementById('booking-step-4').style.display = 'none';
+  });
+
+  // Gallery filter functionality
+  document.querySelectorAll('.gallery-filters button').forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      document.querySelectorAll('.gallery-filters button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
